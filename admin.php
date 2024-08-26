@@ -17,20 +17,31 @@ if (isset($_SESSION['nombre'])  && isset($_SESSION['password']) && isset($_SESSI
             <title>Menu Administrador</title>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+            <link rel="stylesheet" href="style.css">
         </head>
 
         <body>
-            <center>
-                <h1>Bienvenido <?php echo strtoupper($_SESSION['nombre']) . " eres un administrador!"; ?></h1>
-            </center>
-            <div class="d-flex justify-content-center mt-5">
+            <nav class="navbar bg-light shadow">
+                <div class="container-fluid">
+                    <form class="d-flex" role="search row">
+                        <input class="form-control me-2 col search" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-outline-success col button" type="submit">Buscar</button>
+                        <button type="button" class="btn btn-primary col button-create" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-briefcase"></i>&nbsp;Crear Tarea</button>
+                        
+                <label class="d-block col">Bienvenido <?php echo strtoupper($_SESSION['nombre']) . " eres un administrador!"; ?></label>
+            
+                    </form>
+                </div>
+            </nav>
+            
+            <div class="d-flex justify-content-center mt-3">
 
 
-                <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-briefcase"></i>&nbsp;Crear Tarea</button>
+                
             </div>
             <center>
 
-                <div id="tabla" style="width: 800px;">
+                <div id="tabla" style="width: 90%; margin-top: 50px;">
                     <?php
 
                     $id_user = $_SESSION['id_user'];
@@ -38,7 +49,7 @@ if (isset($_SESSION['nombre'])  && isset($_SESSION['password']) && isset($_SESSI
                     $tareas = mysqli_query($conn, $query);
                     ?>
 
-                    <table class="table table-primary shadow p-3 mb-5 bg-body rounded">
+                    <table class="table table-primary shadow p-3 mb-5 bg-body rounded" style="width: 90%; margin-top: 50px;">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -92,7 +103,7 @@ if (isset($_SESSION['nombre'])  && isset($_SESSION['password']) && isset($_SESSI
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                             <button onclick="asignarTarea()" id="button" type="button" class="btn btn-primary" data-id="<?php echo $_SESSION['id_user'] ?>">Asignar tarea</button>
                         </div>
                     </div>
@@ -166,13 +177,22 @@ if (isset($_SESSION['nombre'])  && isset($_SESSION['password']) && isset($_SESSI
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+            <link rel="stylesheet" href="style.css">
             <title>Menu usuario</title>
         </head>
 
         <body>
-            <center>
-                <h1>Bienvenido <?php echo strtoupper($_SESSION['nombre']); ?></h1>
-            </center>
+        <nav class="navbar bg-light shadow">
+                <div class="container-fluid">
+                    <form class="d-flex" role="search row">
+                        <input class="form-control me-2 col search" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-outline-success col button" type="submit">Buscar</button>
+                        
+                <label class="d-block col">Bienvenido <?php echo strtoupper($_SESSION['nombre']) . " eres un usuario!"; ?></label>
+            
+                    </form>
+                </div>
+            </nav>
 
             <?php
 
@@ -186,7 +206,7 @@ if (isset($_SESSION['nombre'])  && isset($_SESSION['password']) && isset($_SESSI
             ?>
 
             <div class="d-flex justify-content-center">
-                <div class="d-flex " style="width: 800px;">
+                <div class="d-flex " style="width: 90%; margin-top: 50px;">
 
                     <table class="table table-primary shadow p-3 mb-5 bg-body rounded">
                         <thead>

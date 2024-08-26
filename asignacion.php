@@ -24,7 +24,7 @@ if (isset($id_user) && isset($nombre_tarea) && isset($descripcion) && isset($fec
         if ($tareas) {
 
 
-            $contenido = "<table class='table table-primary shadow p-3 mb-5 bg-body rounded'>
+            $contenido = "<table class='table table-primary shadow p-3 mb-5 bg-body rounded' style='width: 90%; margin-top: 50px;'>
             <thead>
               <tr>
                 <th scope='col'>#</th>

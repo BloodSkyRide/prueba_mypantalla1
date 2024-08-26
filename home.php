@@ -25,7 +25,7 @@ $productos = mysqli_query($conn, $query);
 <div class="mt-5 d-flex justify-content-center">
 
   <div class="form-control justify-content-center shadow p-3 mb-5 bg-body container-login">
-    <center><h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif">Bienvenidos</h3></center>
+    <center><h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif">Usuario y/o constraseña</h3></center>
     <div class="d-flex justify-content-center">
     <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="card-img-top container-img" alt="..." >
     </div>
@@ -78,17 +78,14 @@ $productos = mysqli_query($conn, $query);
     }).done(function (res) {
 
       if (res.status) {
-
-        alert("comprobado correctamente");
-
-        console.log("la sesion si existe el nombre es: "+res.sesion_nombre);
-        console.log("la sesion si existe el password es: "+res.sesion_password);
          window.location.href = './admin.php';
       }
 
       else{
 
         alert("Usuario y/o contraseña incorrecta!");
+        let user = document.getElementById("user").value = "";
+      let pass = document.getElementById("pass").value = "";
 
       }
 
